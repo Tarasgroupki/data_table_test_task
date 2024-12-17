@@ -1,0 +1,10 @@
+.env.example
+.idea
+/node_modules
+/dist
+.env
+!env.example
+docker-compose.yml
+!docker-compose.example.yml
+Dockerfile
+!Dockerfile.example
