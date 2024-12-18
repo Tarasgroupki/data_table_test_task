@@ -1,4 +1,4 @@
-## Stoned Crystal Back
+## Test app
 
 
 First of all, make sure that you have been already installed 
@@ -15,7 +15,7 @@ In case of troubles: we are using
 
 ## Description
 
-We are using [Nest](https://github.com/nestjs/nest) as a framework.
+We are using [Express.js](https://github.com/nestjs/nest) as a framework.
 
 use next commands to create local `environment` and `configuration` files.
 
