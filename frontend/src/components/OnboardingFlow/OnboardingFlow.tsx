@@ -18,6 +18,8 @@ interface UserData {
 }
 
 const OnboardingFlow: React.FC = () => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const passwordRegex = /^.{6,}$/;
     const { loading, request } = useHttp();
     const [step, setStep] = useState<number>(1);
     const [errorMessage, setErrorMessage] = useState<string | null>(null);
@@ -151,7 +153,7 @@ const OnboardingFlow: React.FC = () => {
                         value={userData.email}
                         onChange={handleChange}
                         placeholder="E-mail address"
-                        validationRegex={/^[^\s@]+@[^\s@]+\.[^\s@]+$/}
+                        validationRegex={emailRegex}
                     />
                     <Input
                         key="password"
@@ -160,7 +162,7 @@ const OnboardingFlow: React.FC = () => {
                         value={userData.password}
                         onChange={handleChange}
                         placeholder="Password"
-                        validationRegex={/^.{6,}$/}
+                        validationRegex={passwordRegex}
                     />
                 </>
             )}
@@ -183,7 +185,7 @@ const OnboardingFlow: React.FC = () => {
                     className="w-auto"
                     text={step === 3 ? 'Submit' : 'Next'}
                     onClick={step === 3 ? handleSubmit : handleNextStep}
-                    disabled={!(userData.email && userData.password)}
+                    disabled={!(emailRegex.test(userData.email) && passwordRegex.test(userData.password))}
                 />
             </div>
         </div>

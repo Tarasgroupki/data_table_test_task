@@ -17,6 +17,8 @@ connectDB();
 
 app.use(cors());
 
+app.use('/', express.static('public'));
+
 app.use('/users', UsersApi);
 app.use('/admin', AdminApi);
 

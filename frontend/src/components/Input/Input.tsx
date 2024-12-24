@@ -25,7 +25,7 @@ const Input: React.FC<CustomInputProps> =
 
     useEffect(() => {
         if (value && !validationRegex.test(value)) {
-            setError("Please enter a valid email address.");
+            setError(`Please enter a valid ${name}.${name === 'password' ? 'Password should be at least 6 characters long.' : ''}`);
         } else {
             setError("");
         }
